@@ -130,7 +130,8 @@ function drawWinLine(pattern) {
 // ==========================================
 function drawSymbolOnCell(cell, symbol) {
   cell.innerHTML = "";
-  const size = cell.offsetWidth;
+  // const size = cell.offsetWidth;
+  const size = Math.min(cell.clientWidth, cell.clientHeight);
   const cvs = document.createElement("canvas");
   cvs.width = size; cvs.height = size;
   cell.appendChild(cvs);

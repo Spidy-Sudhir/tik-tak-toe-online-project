@@ -286,7 +286,7 @@ function checkResult() {
     gameOver = true;
     setTimeout(() => {
       popup.style.display = "flex";
-      popupText.innerText = "It's a Draw! 😅";
+      popupText.innerText = "It's a Draw! 😅<br> Try to defeat Robot";
     }, 600);
     return;
   }

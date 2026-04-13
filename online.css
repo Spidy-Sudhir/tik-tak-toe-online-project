@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+  background: #090909;
+  overflow: hidden;
+  color: white;
+}
+
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: floatBlob 18s ease-in-out infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: #00e5ff;
+  top: 4%;
+  left: 5%;
+}
+
+.blob2 {
+  width: 240px;
+  height: 240px;
+  background: #38bdf8;
+  bottom: 10%;
+  right: 8%;
+}
+
+.blob3 {
+  width: 200px;
+  height: 200px;
+  background: #0284c7;
+  top: 60%;
+  left: 18%;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+.game-container {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 520px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+#playerInfo {
+  color: rgba(255,255,255,0.75);
+  min-height: 24px;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  user-select: none;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: rgba(0, 229, 255, 0.22);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+/* #winCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+} */
+#winCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+button {
+  padding: 13px 32px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #00e5ff, #0284c7);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(18px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.popup-content {
+  width: 90%;
+  max-width: 340px;
+  padding: 36px 30px;
+  border-radius: 28px;
+  background: rgba(0, 229, 255, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  backdrop-filter: blur(22px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+input {
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}

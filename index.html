@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ttt-root">
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+    <div class="bg-blob blob3"></div>
+
+    <div class="home-container">
+
+      <!-- Grid Icon -->
+      <div class="grid-icon">
+        <span class="x"></span><span></span><span class="o"></span>
+        <span></span><span class="x"></span><span></span>
+        <span class="o"></span><span></span><span class="x"></span>
+      </div>
+
+      <h1>Tic Tac Toe</h1>
+      <p class="tagline">Choose your battle mode</p>
+      <div class="divider"></div>
+
+      <div class="mode-cards">
+        <a href="online.html" class="mode-card online-card">
+          <div class="card-icon">🌐</div>
+          <h2>Play Online</h2>
+          <p>Battle with friends in realtime</p>
+          <span class="card-arrow">→</span>
+        </a>
+
+        <a href="robot.html" class="mode-card robot-card">
+          <div class="card-icon">🤖</div>
+          <h2>Play with Robot</h2>
+          <p>Challenge the smart AI</p>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-wrap">
+        <p class="footer-note">X vs O · Classic Strategy Game</p>
+        <p class="footer-credit">Built with <span class="heart">❤️</span> by Sudhir</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    const particles = Array.from({ length: 70 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
+      opacity: Math.random() * 0.4 + 0.08,
+      hue: Math.random() * 80 + 220
+    }));
+
+    function drawBackground() {
+      const w = canvas.width;
+      const h = canvas.height;
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, "#090909");
+      grad.addColorStop(1, "#12091f");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    function drawParticles() {
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 100%, 70%, ${p.opacity})`;
+        ctx.fill();
+      });
+    }
+
+    function animate() {
+      drawBackground();
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

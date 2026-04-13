@@ -275,7 +275,7 @@ function checkResult() {
       drawWinLine(pattern, () => {
         popup.style.display = "flex";
         popupText.innerText =
-          board[a] === player ? "You Won! 🎉" : "Robot Won! 🤖";
+          board[a] === player ? "You Won!🎉 Noice" : "Robot🤖 Won! You Noob";
       });
 
       return;

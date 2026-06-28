@@ -37,8 +37,6 @@ A real-time multiplayer Tic Tac Toe game built with HTML, CSS, JavaScript, and F
   <img src="images/Robot.png" width="750">
 </p>
 
-> Replace these images with your own screenshots.
-
 ---
 
 ## 🛠️ Tech Stack

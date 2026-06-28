@@ -52,21 +52,6 @@ A real-time multiplayer Tic Tac Toe game built with HTML, CSS, JavaScript, and F
 
 ---
 
-## 📂 Project Structure
-
-```text
-tic-tac-toe-multiplayer/
-│
-├── css/
-├── js/
-├── images/
-├── index.html
-├── firebase.js
-├── README.md
-└── assets/
-```
-
----
 
 ## ⚙️ Installation
 

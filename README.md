@@ -24,11 +24,17 @@ A real-time multiplayer Tic Tac Toe game built with HTML, CSS, JavaScript, and F
 ## 📷 Preview
 
 <p align="center">
-  <img src="images/home.png" width="750">
+  <img src="images/Home.png" width="750">
 </p>
 
 <p align="center">
-  <img src="images/gameplay.png" width="750">
+  <img src="images/Select.png" width="750">
+</p>
+<p align="center">
+  <img src="images/Online.png" width="750">
+</p>
+<p align="center">
+  <img src="images/Robot.png" width="750">
 </p>
 
 > Replace these images with your own screenshots.
